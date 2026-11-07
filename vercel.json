@@ -1,10 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "npm run build",
-  "outputDirectory": "public",
-  "rewrites": [
-    { "source": "/", "destination": "/api/lab?labPath=/" },
-    { "source": "/:path*", "destination": "/api/lab?labPath=/:path*" }
-  ]
+  "buildCommand": "npm run build && cp index.html app.js styles.css mark.svg public/",
+  "outputDirectory": "public"
 }
