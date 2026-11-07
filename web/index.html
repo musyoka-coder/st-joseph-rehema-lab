@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Private computer lab inventory and reporting for St. Joseph Rehema College.">
+  <meta name="theme-color" content="#13382f">
+  <title>Computer Lab | St. Joseph Rehema College</title>
+  <link rel="icon" href="/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="St. Joseph Rehema College lab overview">
+      <img src="/mark.svg" width="40" height="40" alt="">
+      <span><strong>St. Joseph Rehema</strong><small>COLLEGE</small></span>
+    </a>
+    <span class="side-label">LAB WORKSPACE</span>
+    <nav aria-label="Lab workspace">
+      <a href="#overview" data-view="overview" aria-current="page"><span data-icon="dashboard"></span>Overview</a>
+      <a href="#workstations" data-view="workstations"><span data-icon="monitor"></span>Workstations</a>
+      <a href="#equipment" data-view="equipment"><span data-icon="equipment"></span>Equipment</a>
+      <a href="#maintenance" data-view="maintenance"><span data-icon="tool"></span>Maintenance</a>
+      <a href="#reports" data-view="reports"><span data-icon="report"></span>Reports</a>
+    </nav>
+    <div class="sidebar-footer"><span data-icon="lock"></span><div><strong>Private workspace</strong><small>Owner access only</small></div></div>
+  </aside>
+
+  <div class="workspace">
+    <header class="topbar">
+      <div class="breadcrumbs"><span>Lab workspace</span><span aria-hidden="true">/</span><strong id="breadcrumb">Overview</strong></div>
+      <div class="top-actions"><span class="private"><span data-icon="lock"></span>Private</span><span class="top-divider"></span><span class="avatar" title="St. Joseph Rehema College" aria-label="St. Joseph Rehema College">SJ</span></div>
+    </header>
+
+    <main id="main">
+      <div class="page-intro">
+        <div><p class="eyebrow"><span></span> COMPUTER LAB MANAGEMENT</p><h1 id="page-title">Lab overview</h1></div>
+        <button class="button primary" type="button" data-download disabled><span data-icon="download"></span><span>Download lab report</span></button>
+      </div>
+      <div id="notice" class="notice" role="status" hidden></div>
+
+      <section id="overview-content" aria-label="Lab summary">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="hero-label"><span></span> ST. JOSEPH REHEMA COLLEGE</p>
+            <h2>Computer Lab</h2>
+            <p>Track workstation setup, equipment condition and maintenance across the lab.</p>
+          </div>
+          <svg class="hero-art" viewBox="0 0 388 181" fill="none" aria-hidden="true">
+            <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0v24" stroke="#98d8bb" stroke-opacity=".2" stroke-width="1"/></pattern><linearGradient id="grid-fade"><stop stop-color="white" stop-opacity="0"/><stop offset=".52" stop-color="white"/><stop offset="1" stop-color="white" stop-opacity=".5"/></linearGradient><mask id="grid-mask"><rect width="388" height="181" fill="url(#grid-fade)"/></mask></defs>
+            <rect width="388" height="181" fill="url(#grid)" mask="url(#grid-mask)"/>
+            <g stroke="#a3dec1" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+              <path opacity=".34" d="M162 45V24h22m129 21V24h-22M162 113v22h22m129-22v22h-22M117 110h42m158 0h44M238 144v13h38m-38 0h-39M117 110v32h25m219-32v32h-25"/>
+              <rect x="178" y="36" width="120" height="82" rx="8" fill="#1a5141"/>
+              <rect x="185" y="44" width="106" height="58" rx="3" fill="#12392f"/>
+              <path d="M222 119v11l-12 9h56l-12-9v-11M229 80l-12-9 12-9m18 0 12 9-12 9m-6-22-7 26"/>
+              <path opacity=".65" d="M233 110h10"/>
+              <circle cx="117" cy="110" r="3" fill="#a3dec1"/><circle cx="361" cy="110" r="3" fill="#a3dec1"/><circle cx="199" cy="157" r="3" fill="#a3dec1"/><circle cx="276" cy="157" r="3" fill="#a3dec1"/>
+            </g>
+          </svg>
+        </div>
+        <div class="metrics" aria-label="Inventory counts">
+          <article class="metric"><div class="metric-top"><span>Workstations</span><span class="metric-icon tint-green" data-icon="monitor"></span></div><strong id="total-count">—</strong><small id="paired-count">— fully paired</small></article>
+          <article class="metric"><div class="metric-top"><span>Ready</span><span class="metric-icon tint-green" data-icon="check"></span></div><strong id="ready-count">—</strong><small>Setup complete</small></article>
+          <article class="metric"><div class="metric-top"><span>In progress</span><span class="metric-icon tint-blue" data-icon="clock"></span></div><strong id="progress-count">—</strong><small>Setup underway</small></article>
+          <article class="metric"><div class="metric-top"><span>Needs attention</span><span class="metric-icon tint-amber" data-icon="alert"></span></div><strong id="attention-count">—</strong><small>Blocked, repair or out of service</small></article>
+        </div>
+      </section>
+
+      <section id="inventory-content" aria-labelledby="inventory-title">
+        <div class="section-heading"><div><h2 id="inventory-title">Workstation inventory</h2><p>Select a workstation to pair a monitor and system unit, or update its setup and maintenance.</p></div></div>
+        <div class="inventory panel">
+          <div class="filters" aria-label="Filter inventory">
+            <label class="search"><span data-icon="search"></span><span class="sr">Search workstations</span><input id="search" type="search" placeholder="Search ID, model, asset tag…" autocomplete="off"></label>
+            <label class="select"><span class="sr">Setup status</span><select id="setup-filter"><option value="">All setup statuses</option><option>Not started</option><option>In progress</option><option>Ready</option><option>Blocked</option></select></label>
+            <label class="select"><span class="sr">Condition</span><select id="condition-filter"><option value="">All conditions</option><option>Not assessed</option><option>Good</option><option>Fair</option><option>Needs repair</option><option>Out of service</option></select></label>
+          </div>
+          <div class="table-scroll" tabindex="0" aria-label="Workstation inventory table">
+            <table>
+              <thead><tr><th scope="col">Workstation</th><th scope="col">Assigned equipment</th><th scope="col">Condition</th><th scope="col">Setup status</th><th scope="col">Last updated</th><th scope="col"><span class="sr">Action</span></th></tr></thead>
+              <tbody id="inventory-rows"></tbody>
+            </table>
+          </div>
+          <div id="inventory-state" class="state">Loading workstations…</div>
+          <div class="table-footer"><span id="results" aria-live="polite">Loading inventory</span><button id="reset-filters" class="link-button" type="button" hidden>Clear filters</button><span id="save-label"><span data-icon="lock"></span> Private lab register</span></div>
+        </div>
+      </section>
+
+      <section id="equipment-content" aria-labelledby="equipment-title" hidden>
+        <div class="section-heading equipment-heading">
+          <div><h2 id="equipment-title">Equipment register</h2><p>Register monitors and system units separately, then assign them in a workstation record.</p></div>
+          <div class="equipment-actions">
+            <button class="button secondary" type="button" data-add-equipment="monitor" disabled><span data-icon="monitor"></span>Add monitor</button>
+            <button class="button primary" type="button" data-add-equipment="system-unit" disabled><span data-icon="equipment"></span>Add system unit</button>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="filters">
+            <label class="search"><span data-icon="search"></span><span class="sr">Search equipment</span><input id="equipment-search" type="search" placeholder="Search tag, model, serial…" autocomplete="off"></label>
+            <label class="select"><span class="sr">Equipment type</span><select id="equipment-filter"><option value="">All equipment types</option><option value="monitor">Monitors</option><option value="system-unit">System units</option></select></label>
+            <label class="select"><span class="sr">Assignment</span><select id="assignment-filter"><option value="">All assignments</option><option value="assigned">Assigned</option><option value="unassigned">Unassigned</option></select></label>
+          </div>
+          <div class="table-scroll" tabindex="0" aria-label="Equipment register table">
+            <table>
+              <thead><tr><th scope="col">Asset tag</th><th scope="col">Type</th><th scope="col">Make / model</th><th scope="col">Condition</th><th scope="col">Assigned to</th><th scope="col"><span class="sr">Action</span></th></tr></thead>
+              <tbody id="equipment-rows"></tbody>
+            </table>
+          </div>
+          <div id="equipment-state" class="state">Loading equipment…</div>
+          <div class="table-footer"><span id="equipment-count" aria-live="polite"></span></div>
+        </div>
+      </section>
+
+      <section id="maintenance-content" aria-labelledby="maintenance-title" hidden>
+        <div class="section-heading"><div><h2 id="maintenance-title">Maintenance history</h2><p>Inspections, setup notes, repairs and follow-ups saved against individual workstations.</p></div></div>
+        <div class="panel notes-panel">
+          <div class="filters"><label class="select"><span class="sr">Workstation</span><select id="note-filter"><option value="">All workstations</option></select></label><button id="open-note" type="button" class="button secondary" disabled><span data-icon="tool"></span>Open workstation</button></div>
+          <div id="maintenance-notes" class="note-list"></div>
+        </div>
+      </section>
+
+      <section id="reports-content" aria-labelledby="reports-title" hidden>
+        <div class="section-heading"><div><h2 id="reports-title">Computer lab inventory report</h2><p>Download an A4 PDF generated from the current saved records for all 13 workstations.</p></div></div>
+        <div class="panel report-card">
+          <span class="metric-icon tint-green" data-icon="report"></span>
+          <div><h3>Lab inventory and maintenance</h3><p>The report includes readiness counts, workstation pairings, registered equipment and maintenance history. Filters on the inventory table do not change the report.</p></div>
+          <button class="button primary" type="button" data-download disabled><span data-icon="download"></span><span>Download PDF</span></button>
+        </div>
+      </section>
+
+      <footer class="main-footer"><span>St. Joseph Rehema College</span><span>Computer Lab Management</span></footer>
+    </main>
+  </div>
+
+  <dialog id="editor" aria-labelledby="editor-title">
+    <form id="edit-form">
+      <div class="editor-head">
+        <div><p class="eyebrow"><span></span> WORKSTATION RECORD</p><h2 id="editor-title">Workstation</h2><p id="editor-meta"></p></div>
+        <button id="close-editor" type="button" class="icon-button" aria-label="Close workstation"><span data-icon="close"></span></button>
+      </div>
+      <div class="editor-body">
+        <div id="edit-error" class="notice error" role="alert" hidden></div>
+        <button type="button" id="reload-record" class="link-button" hidden>Reload saved record</button>
+        <section>
+          <h3>Condition &amp; setup</h3>
+          <div class="fields">
+            <label>Condition<select name="condition"><option>Not assessed</option><option>Good</option><option>Fair</option><option>Needs repair</option><option>Out of service</option></select></label>
+            <label>Setup status<select name="setup"><option>Not started</option><option>In progress</option><option>Ready</option><option>Blocked</option></select></label>
+          </div>
+        </section>
+        <section>
+          <h3>Workstation pairing</h3>
+          <p class="help">Choose one registered monitor and one registered system unit. Equipment already assigned elsewhere is excluded.</p>
+          <div class="fields">
+            <label>Assigned monitor<select name="monitorId"><option value="">Unassigned</option></select></label>
+            <label>Assigned system unit<select name="systemUnitId"><option value="">Unassigned</option></select></label>
+          </div>
+          <p class="help pairing-help"><button class="link-button" id="open-equipment-register" type="button">Open equipment register</button></p>
+        </section>
+        <section>
+          <h3>Workstation details</h3>
+          <p class="help">Use these fields for any existing details recorded directly against the workstation.</p>
+          <div class="fields">
+            <label>Make / model<input name="model" maxlength="120" placeholder="e.g. HP ProDesk 400 G5"></label>
+            <label>Serial number<input name="serial" maxlength="100"></label>
+            <label>Asset tag<input name="assetTag" maxlength="100"></label>
+            <label>Processor<input name="processor" maxlength="100"></label>
+            <label>RAM<input name="memory" maxlength="60" placeholder="e.g. 8 GB"></label>
+            <label>Storage<input name="storage" maxlength="80" placeholder="e.g. 256 GB SSD"></label>
+            <label>Operating system<input name="operatingSystem" maxlength="100"></label>
+            <label>Monitor description<input name="monitor" maxlength="140"></label>
+            <label>Keyboard<input name="keyboard" maxlength="140"></label>
+            <label>Mouse<input name="mouse" maxlength="140"></label>
+            <label>Network<input name="network" maxlength="120" placeholder="e.g. Ethernet tested"></label>
+            <label>Power / UPS<input name="power" maxlength="120"></label>
+          </div>
+        </section>
+        <section>
+          <h3>Maintenance notes</h3>
+          <p class="help">Add a dated entry to this workstation’s history.</p>
+          <div class="fields">
+            <label>Note category<select name="noteCategory"><option>Inspection</option><option>Setup</option><option>Repair</option><option>Follow-up</option></select></label>
+            <label class="wide">New note<textarea name="noteText" maxlength="2000" rows="4" placeholder="Record the issue, work done or follow-up."></textarea></label>
+          </div>
+          <div id="editor-notes" class="note-list"></div>
+        </section>
+      </div>
+      <div class="editor-footer"><button class="button secondary" type="button" id="cancel-edit">Cancel</button><button class="button primary" type="submit" id="save-edit"><span data-icon="check"></span><span>Save changes</span></button></div>
+    </form>
+  </dialog>
+  <dialog id="equipment-editor" aria-labelledby="equipment-editor-title">
+    <form id="equipment-form">
+      <div class="editor-head">
+        <div><p class="eyebrow"><span></span> EQUIPMENT RECORD</p><h2 id="equipment-editor-title">Equipment</h2><p id="equipment-editor-meta"></p></div>
+        <button id="close-equipment" type="button" class="icon-button" aria-label="Close equipment"><span data-icon="close"></span></button>
+      </div>
+      <div class="editor-body">
+        <div id="equipment-error" class="notice error" role="alert" hidden></div>
+        <section>
+          <h3>Asset details</h3>
+          <div class="fields">
+            <label>Asset tag<input name="assetTag" maxlength="100" required></label>
+            <label>Make / model<input name="model" maxlength="120" required></label>
+            <label>Serial number<input name="serial" maxlength="100"></label>
+            <label>Condition<select name="condition"><option>Not assessed</option><option>Good</option><option>Fair</option><option>Needs repair</option><option>Out of service</option></select></label>
+            <label data-kind="monitor">Screen size<input name="displaySize" maxlength="60" placeholder="e.g. 22 inches"></label>
+            <label data-kind="monitor">Video ports<input name="ports" maxlength="100" placeholder="e.g. VGA, HDMI"></label>
+            <label data-kind="system-unit">Processor<input name="processor" maxlength="100"></label>
+            <label data-kind="system-unit">RAM<input name="memory" maxlength="60"></label>
+            <label data-kind="system-unit">Storage<input name="storage" maxlength="80"></label>
+            <label data-kind="system-unit">Operating system<input name="operatingSystem" maxlength="100"></label>
+            <label class="wide">Equipment notes<input name="remarks" maxlength="600"></label>
+          </div>
+        </section>
+      </div>
+      <div class="editor-footer"><button class="button secondary" type="button" id="cancel-equipment">Cancel</button><button class="button primary" type="submit" id="save-equipment"><span data-icon="check"></span><span>Save equipment</span></button></div>
+    </form>
+  </dialog>
+</body>
+</html>
